@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Compass Homepage</title>
+  <!-- Google Fonts import for Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #303030;
+      color: #333;
+    }
+
+    header {
+      background-color: #aa6413;
+      padding: 15px 20px 15px 0px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      gap: 15px;
+      color: white;
+      font-size: 2.4rem;
+      font-weight: 600;
+      user-select: none;
+      letter-spacing: 1.2px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    header img {
+      height: 60px;
+      width: 80px;
+      transform: scale(1.5);
+      transform-origin: left center;
+      display: block;
+    }
+
+    nav {
+      background-color: #613604;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      margin-bottom: 40px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 0 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #aa6413;
+      transform: scale(1.05);
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      margin-bottom: 80px;
+    }
+
+    .card {
+      flex: 0 0 calc(33.333% - 40px);
+      height: 200px;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      border-radius: 10px;
+    }
+
+    .card h3,
+    .card p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card-fishing {
+      background-image: url('https://lh5.googleusercontent.com/proxy/j97rACQ8kxcD-duCKyBOvnKVqC6y7KV_GdYMZupD_icH2SzHKwbTZ8xqX2VqVnIvUBXxFEAwke_aCLO4dEiA_2-5RqcGuj9jXxwTmA8o7F6tMyxd11SuROYvPoqW_vltgeNzzvL1B7tgPew');
+    }
+
+    .card-rapids {
+      background-image: url('https://www.sierramac.com/wp-content/uploads/2016/06/may_29_16_11.jpg');
+    }
+
+    .card-kayaking {
+      background-image: url('https://i0.wp.com/outdoorexplore.co.uk/wp-content/uploads/2021/03/IMG_20210319_1731082-scaled.jpg?resize=1080%2C810&ssl=1');
+    }
+
+    .card-desert {
+      background-image: url('https://assets.gotravelsites.com/photos/ArizonaOutdoorFunRentals-GuidedATVDesertTour3Hours-results_4411_11586-800x534.jpg');
+    }
+
+    .card-snowboarding {
+      background-image: url('https://media.bogusbasin.org/uploads/2022/02/17192639/Activity-Detail_-Alpine-Skiing-Snowboarding.jpg');
+    }
+
+    .card-rainforest {
+      background-image: url('https://www.fodors.com/wp-content/uploads/2018/12/10_AmazonMisadventure_DontHesitateQuestions_shutterstock_758138311_1.jpg');
+    }
+
+    footer {
+      color: #ffffff;
+      background-color: #000000;
+      padding: 15px;
+      text-align: center;
+    }
+
+  @media (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(50% - 40px);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 0 0 100%;
+  }
+
+  header {
+    font-size: 1.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+  }
+
+  header img {
+    height: 40px;
+    width: 60px;
+    transform: none;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .content {
+    padding: 10px;
+    gap: 15px;
+  }
+  }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="Pictures/logo.svg" alt="Compass Logo" />
+  <span>Compass Adventures</span>
+</header>
+
+<nav>
+  <a href="TripPlanner.php">Trip Planner</a>
+  <a href="Destinations.html">Destinations</a>
+  <a href="Travelog.php">Travel Logs</a>
+  <a href="#" onclick="confirmLogout()">Logout</a>
+</nav>
+
+<div class="content">
+  <div class="card card-fishing">
+    <h3>Fly Fishing in the Rocky Mountains</h3>
+    <p>You’ll get a season guide and lots of dehydrated ravioli.</p>
+  </div>
+  <div class="card card-rapids">
+    <h3>Level 5 Rapids!</h3>
+    <p>Put on your helmet and grab your wetsuit. It’s time to conquer Siberia.</p>
+  </div>
+  <div class="card card-kayaking">
+    <h3>Puget Sound Kayaking</h3>
+    <p>One week of ocean kayaking in the Puget Sound.</p>
+  </div>
+  <div class="card card-desert">
+    <h3>Desert Safari in Arizona</h3>
+    <p>Experience thrilling 4x4 rides across the dunes and amazing desert sunsets.</p>
+  </div>
+  <div class="card card-snowboarding">
+    <h3>Alpine Snowboarding</h3>
+    <p>Hit the slopes and shred some powder in the Swiss Alps!</p>
+  </div>
+  <div class="card card-rainforest">
+    <h3>Amazon Rainforest Trek</h3>
+    <p>Discover exotic wildlife and lush greenery on this guided jungle tour.</p>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Compass Adventures. All rights reserved.
+</footer>
+<script>
+  function confirmLogout() {
+    if (confirm("Are you sure you want to log out?")) {
+      window.location.href = "logout.php";
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffcc66;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    position: absolute;
+    right: 55%;
+    background:  #333;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 100%;
+    box-shadow: 0 4px 10px rgba(255, 115, 0, 0.2);
+    text-align: center;
+}
+
+.form-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.input-wrapper { 
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.input-wrapper input, .input-wrapper select {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    appearance: none;
+    background: #fff url('data:image/svg+xml;utf8,<svg fill="%23888" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 16px 16px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: #ffcc66;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 1em;
+}
+
+.btn:hover {
+    background: #ACB6E5;
+}
+
+.errors {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.errors ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.links {
+    margin-top: 15px;
+    color: #ffffff;
+}
+
+.links a {
+    color: #06fac5;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+img {
+    position: absolute;
+    left: 53%;
+    top: 25%;
+    width: 50%;
+    height: 50%;
+}
+
+.upperMessage {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    background: #ffcc66;
+    padding: 10px 20px;
+}
+
+.formMessage{
+    text-align: center;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.agreementForm{
+    margin-bottom: 15px;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.agreementForm a{
+    color: #06fac5;
+}
+
+.input-wrapper .toggle-password {
+    position: absolute;
+    left: 410px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 1;
+}
+
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .container {
+        position: static;
+        width: 100%;
+        padding: 20px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .upperMessage {
+        position: static;
+        transform: none;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    img {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .input-wrapper .toggle-password {
+        left: auto;
+        right: 10px;
+    }
+}
+
+    .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+    }
+
+    .forgot-password a {
+            color: #06fac5;
+            text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+            text-decoration: underline;
+    }
+
+    .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            text-align: center;
+}
+
+
+

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travel Detail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #303030;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background-color: #aa6413;
+      padding: 15px 20px 15px 0px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      gap: 15px;
+      color: white;
+      font-size: 2.4rem;
+      font-weight: 600;
+      user-select: none;
+      letter-spacing: 1.2px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    header img {
+      height: 60px;
+      width: 80px;
+      transform: scale(1.5);
+      transform-origin: left center;
+      display: block;
+    }
+
+    nav {
+      background-color: #613604;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      margin-bottom: 40px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 0 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #aa6413;
+      transform: scale(1.05);
+    }
+
+    .container {
+      max-width: 1030px;
+      margin: 20px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .sidebar-left {
+      flex: 1 1 200px;
+      background-color: #000;
+      padding: 30px;
+      color: white;
+    }
+
+    .sidebar-right {
+      flex: 1 1 200px;
+      background-color: #993300;
+      padding: 30px;
+      color: white;
+    }
+
+    .content {
+      flex: 2 1 500px;
+      background-color: #ffcc66;
+      color: #000;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .travelog-section {
+      margin-bottom: 30px;
+    }
+
+    .travelog-title {
+      color: #993300;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .travelog-text {
+      font-size: 1rem;
+      font-family: Verdana, Arial, sans-serif;
+    }
+
+    .travelog-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .travelog-row img {
+      width: 150px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .back-button-container {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 1000;
+    }
+
+    .back-button {
+      background-color: #613604;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #aa6413;
+    }
+
+    footer {
+      background-color: #000;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar-left, .sidebar-right, .content {
+        flex: 1 1 100%;
+      }
+
+      .travelog-row img {
+        width: 100%;
+        height: auto;
+      }
+
+      header {
+        font-size: 1.6rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+        text-align: center;
+      }
+
+      header img {
+        height: 40px;
+        width: 60px;
+        transform: none;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Pictures/" alt="Compass Logo" />
+    <span>Compass Adventures</span>
+  </header>
+
+  <nav>
+    <a href="TripPlanner.php">Trip Planner</a>
+    <a href="Destinations.html">Destinations</a>
+    <a href="Travelog.php">Travel Logs</a>
+  </nav>
+
+  <main class="container">
+    <aside class="sidebar-left">
+      <h3 style="color: #ffcc66; font-size: 1.3rem; text-transform: uppercase; margin-bottom: 10px;">
+        Package Includes
+      </h3>
+      <ul>
+        <li>Airfare</li>
+        <li>Lodging</li>
+        <li>Food</li>
+        <li>Local Guide</li>
+      </ul>
+    </aside>
+
+    <section class="content">
+      <div class="travelog-section">
+        <h2 class="travelog-title">Surf Safari Highlights</h2>
+        <p class="travelog-text">
+          Summertime in southern California — what could be better? Whether you're looking for big waves or smooth rollers, California's beaches have something for every surfer. From Trestles to Malibu, it's a wave-lover’s paradise.
+        </p>
+      </div>
+
+      <div class="travelog-section">
+        <h2 class="travelog-title">Where You'll Stay</h2>
+        <p class="travelog-text">
+          Enjoy your stay at the centrally located Newport Bonita in Newport Beach. It’s the perfect hub to explore Trestles, The Wedge, Salt Creek, and more — or just relax at the nearby local beaches.
+        </p>
+      </div>
+
+      <div class="travelog-section">
+        <h2 class="travelog-title">Photo Highlights</h2>
+        <div class="travelog-row">
+          <img src="https://i.pinimg.com/736x/54/4f/db/544fdb885e13c0bced94dff1381d8431.jpg" alt="Surf Spot 1">
+          <img src="https://i.pinimg.com/736x/1b/09/03/1b09038d53c5ca5842a5e2851a0c1510.jpg" alt="Surf Spot 2">
+          <img src="https://i.pinimg.com/736x/c5/d0/00/c5d0007f1f578fdb245ed0a50fd75d40.jpg" alt="Surf Spot 3">
+        </div>
+      </div>
+    </section>
+
+    <aside class="sidebar-right">
+      <h3 style="color: #ffcc66; font-size: 1.3rem; text-transform: uppercase; margin-bottom: 10px;">
+        Things To Do
+      </h3>
+      <p style="font-size: 0.85rem; color: #f2f2f2;">
+        Check out our slideshow of local attractions — great eats, chill spots, and scenic sunsets!
+      </p>
+    </aside>
+  </main>
+
+  <div class="back-button-container">
+    <a class="back-button" href="Destinations.html">← Back</a>
+  </div>
+
+  <footer>
+    &copy; 2025 Compass Adventures. All rights reserved.
+  </footer>
+
+</body>
+</html>

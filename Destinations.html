@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Featured Destinations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    body, h1, h2, h3, p, a, ul, li {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', Verdana, Arial, Helvetica, sans-serif;
+      background: #303030;
+      color: #303030;
+    }
+
+    .back-button-container {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 1000;
+    }
+    .back-button {
+      background-color: #613604;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      user-select: none;
+    }
+    .back-button:hover {
+      background-color: #aa6413;
+    }
+
+    header {
+      background-color: #aa6413;
+      padding: 15px 15px 15px 0px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      gap: 15px;
+      color: white;
+      font-size: 2.4rem;
+      font-weight: 600;
+      user-select: none;
+      letter-spacing: 1.2px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    header a {
+      display: flex;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+    }
+    header img {
+      height: 60px;
+      width: 80px;
+      transform: scale(1.5);
+      transform-origin: left center;
+      margin-right: 15px;
+    }
+
+    nav {
+      background-color: #613604;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      margin-bottom: 40px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 0 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #aa6413;
+      transform: scale(1.05);
+    }
+
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .main {
+      display: flex;
+      margin-top: 20px;
+    }
+    .sidebar-left, .sidebar-right {
+      flex: 0 0 150px;
+      background-color: #000;
+      padding: 10px;
+    }
+    .sidebar-left img {
+      width: 100%;
+      display: block;
+    }
+    .sidebar-right {
+      background: #993300;
+      min-height: 600px;
+      color: white;
+    }
+    .content {
+      flex: 1;
+      background: #ffcc66;
+      padding: 20px;
+      margin: 0 15px;
+    }
+
+    .content h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #000;
+      padding-bottom: 5px;
+    }
+
+    .intro-text {
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .destination {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .destination img.icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 15px;
+      flex-shrink: 0;
+    }
+
+    .destination .desc {
+      flex: 1;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .destination .desc h3 {
+      margin-bottom: 0;
+    }
+
+    .destination .desc p {
+      margin-bottom: 0;
+    }
+
+    .destination .details-link {
+      align-self: flex-start;
+      margin-top: 10px;
+      display: inline-block;
+      text-decoration: none;
+      background: #000;
+      color: #ffcc66;
+      padding: 5px 10px;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      transition: background 0.3s ease;
+    }
+
+    .destination .details-link:hover {
+      background: #ffcc66;
+      color: #000;
+    }
+
+    .destination .price {
+      width: 120px;
+      background: #eee;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+      border-left: 1px solid #ccc;
+    }
+
+    .destination .price small {
+      display: block;
+      font-weight: normal;
+      font-size: 0.75rem;
+      margin-top: 5px;
+    }
+
+    .destination .price img {
+      width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .destination .price img:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+      .sidebar-left, .sidebar-right {
+        flex: none;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .content {
+        margin: 0;
+      }
+      .destination {
+        flex-direction: column;
+      }
+      .destination .price {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #ccc;
+        margin-top: 10px;
+      }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal:target {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 80%;
+      max-height: 80%;
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      text-decoration: none;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ff0000;
+      background: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="back-button-container">
+    <a href="CompassHome.html" class="back-button">← Back</a>
+  </div>
+
+  <header>
+    <a href="CompassHome.html">
+      <img src="Pictures/logo.svg" alt="Compass Logo" />
+      <span>Compass Adventures</span>
+    </a>
+  </header>
+
+  <nav>
+    <a href="TripPlanner.php">Trip Planner</a>
+    <a href="Destinations.html" class="active">Destinations</a>
+    <a href="Travelog.php">Travel Logs</a>
+  </nav>
+
+  <div class="container">
+    <div class="main">
+      <aside class="sidebar-left">
+        <a href="#zoomedImage">
+          <img src="Pictures/plane image.webp" alt="Plane" />
+        </a>
+      </aside>
+
+      <div id="zoomedImage" class="modal">
+        <div class="modal-content">
+          <a href="#" class="close">&times;</a>
+          <img src="Pictures/plane image.webp" alt="Zoomed Plane" />
+        </div>
+      </div>
+
+      <section class="content">
+        <h2>Featured Destinations</h2>
+        <p class="intro-text">
+          Compass works hard to bring you the best possible trips for your rugged lifestyle.
+          Here you'll find our latest travel packages suited for the adventure spirit.
+        </p>
+
+        <article class="destination">
+          <img src="Pictures/1.png" alt="Surfing Icon" class="icon" />
+          <div class="desc">
+            <h3>California Surfing</h3>
+            <p>Be ready to go on a moment's notice. We will call you when the surf is pumping and fly you out for five mornings of hurricane inspired summertime swells.</p>
+            <a href="Detail_Surf.html" class="details-link">More Details</a>
+          </div>
+          <div class="price">
+            $960
+            <small>includes lodging, food, and airfare</small>
+            <a href="#zoomedSurf">
+              <img src="Pictures/california image surfing.avif" alt="Surfing" />
+            </a>
+          </div>
+        </article>
+
+        <div id="zoomedSurf" class="modal">
+          <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <img src="Pictures/california image surfing.avif" alt="Zoomed Surfing" />
+          </div>
+        </div>
+
+        <article class="destination">
+          <img src="Pictures/2.png" alt="Mountain Biking Icon" class="icon" />
+          <div class="desc">
+            <h3>New Zealand Mountain Biking</h3>
+            <p>Beautiful scenery combined with steep inclines and fast roads allow for some great cycling. Don't forget the helmet!</p>
+            <a href="Detail_mtnBike.html" class="details-link">More Details</a>
+          </div>
+          <div class="price">
+            $1490
+            <small>includes lodging, food, and airfare</small>
+            <a href="#zoomedBike">
+              <img src="Pictures/new zealand mountain biking.jpg" alt="Mountain Biking" />
+            </a>
+          </div>
+        </article>
+
+        <div id="zoomedBike" class="modal">
+          <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <img src="Pictures/new zealand mountain biking.jpg" alt="Zoomed Biking" />
+          </div>
+        </div>
+
+        <article class="destination">
+          <img src="Pictures/3.png" alt="Rock Climbing Icon" class="icon" />
+          <div class="desc">
+            <h3>Devil's Tower Rock Climbing</h3>
+            <p>In this three day trip you'll scale the majestic cliffs of beautiful Devil's Tower, Wyoming.</p>
+            <a href="Detail_rockClimb.html" class="details-link">More Details</a>
+          </div>
+          <div class="price">
+            $740
+            <small>includes lodging, food, and airfare</small>
+            <a href="#zoomedClimb">
+              <img src="Pictures/rock-climbing.jpg" alt="Climbing" />
+            </a>
+          </div>
+        </article>
+
+        <div id="zoomedClimb" class="modal">
+          <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <img src="Pictures/rock-climbing.jpg" alt="Zoomed Climbing" />
+          </div>
+        </div>
+
+      </section>
+
+      <aside class="sidebar-right">
+        <h2>More Trips</h2>
+        <p>Check out our travel logs and trip planner for more inspiration!</p>
+      </aside>
+    </div>
+  </div>
+
+</body>
+</html>
